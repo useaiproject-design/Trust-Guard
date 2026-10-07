@@ -1,0 +1,7 @@
+
+# Local ML model - stored separately for deployment
+backend/models/severity_model.pkl
+
+# Local ML training/processed datasets
+backend/data/processed/dive_ml_dataset.csv
+backend/data/processed/ml_ready/X_train.csv
