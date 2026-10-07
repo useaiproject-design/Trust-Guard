@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>TrustGuard AI Security Analyzer</title>
+
+    <link rel="stylesheet" href="popup.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- =========================================
+             HEADER
+        ========================================== -->
+
+        <header>
+            <h1>TrustGuard AI</h1>
+            <p>Smart Contract Security Analyzer</p>
+        </header>
+
+
+        <!-- =========================================
+             CONTRACT ADDRESS INPUT
+        ========================================== -->
+
+        <div class="input-section">
+
+            <input
+                type="text"
+                id="contractAddress"
+                placeholder="Enter Contract Address"
+                autocomplete="off"
+            >
+
+            <button
+                type="button"
+                id="analyzeBtn"
+            >
+                Analyze
+            </button>
+
+        </div>
+
+
+        <!-- =========================================
+             LOADING INDICATOR
+        ========================================== -->
+
+        <div
+            id="loader"
+            class="hidden"
+        >
+
+            <div class="spinner"></div>
+
+            <p>Analyzing Contract...</p>
+
+        </div>
+
+
+        <!-- =========================================
+             ANALYSIS RESULTS
+        ========================================== -->
+
+        <div
+            id="results"
+            class="hidden"
+        >
+
+            <!-- =====================================
+                 SCORE
+            ====================================== -->
+
+            <div class="score-container">
+
+                <div
+                    class="progress-circle"
+                    data-score="0"
+                >
+
+                    <svg
+                        class="progress-ring"
+                        width="120"
+                        height="120"
+                        viewBox="0 0 120 120"
+                    >
+
+                        <circle
+                            class="progress-ring__circle-bg"
+                            stroke-width="10"
+                            fill="transparent"
+                            r="50"
+                            cx="60"
+                            cy="60"
+                        ></circle>
+
+                        <circle
+                            class="progress-ring__circle"
+                            stroke-width="10"
+                            fill="transparent"
+                            r="50"
+                            cx="60"
+                            cy="60"
+                        ></circle>
+
+                    </svg>
+
+                    <span class="score-text">
+                        0/20
+                    </span>
+
+                </div>
+
+
+                <div
+                    id="riskLevel"
+                    class="risk-level"
+                ></div>
+
+            </div>
+
+
+            <!-- =====================================
+                 DEPLOYMENT READINESS
+            ====================================== -->
+
+            <div
+                id="readinessContainer"
+                class="result-section"
+            >
+
+                <h2>Deployment Readiness</h2>
+
+                <div
+                    id="readinessStatus"
+                    class="readiness-status"
+                >
+                    -
+                </div>
+
+                <div class="readiness-details">
+
+                    <div>
+                        <span>Readiness Score</span>
+                        <strong id="readinessScore">-</strong>
+                    </div>
+
+                    <div>
+                        <span>Risk Level</span>
+                        <strong id="readinessRisk">-</strong>
+                    </div>
+
+                </div>
+
+                <div>
+
+                    <h3>Blocking Issues</h3>
+
+                    <ul id="blockingIssues"></ul>
+
+                </div>
+
+                <div>
+
+                    <h3>Recommendations</h3>
+
+                    <ul id="readinessRecommendations"></ul>
+
+                </div>
+
+            </div>
+
+
+            <!-- =====================================
+                 RED FLAGS
+            ====================================== -->
+
+            <div
+                id="flagsContainer"
+                class="result-section"
+            >
+
+                <h2>Potential Red Flags</h2>
+
+                <ul id="flagsList"></ul>
+
+            </div>
+
+
+            <!-- =====================================
+                 PRIORITIZED VULNERABILITIES
+            ====================================== -->
+
+            <div
+                id="vulnerabilitiesContainer"
+                class="result-section"
+            >
+
+                <h2>Prioritized Vulnerabilities</h2>
+
+                <div id="vulnerabilitiesList"></div>
+
+            </div>
+
+
+            <!-- =====================================
+                 REPAIR SUGGESTIONS
+            ====================================== -->
+
+            <div
+                id="repairsContainer"
+                class="result-section"
+            >
+
+                <h2>Repair Suggestions</h2>
+
+                <div id="repairsList"></div>
+
+            </div>
+
+
+            <!-- =====================================
+                 ON-CHAIN INFORMATION
+            ====================================== -->
+
+            <div
+                id="onchainContainer"
+                class="result-section"
+            >
+
+                <h2>On-Chain Analysis</h2>
+
+                <div id="onchainDetails"></div>
+
+            </div>
+
+
+            <!-- =====================================
+                 AI CHATBOT
+            ====================================== -->
+
+            <div id="chatbot-container">
+
+                <h2>Ask TrustGuard AI</h2>
+
+                <div id="chat-box">
+
+                    <div class="bot-message">
+
+                        <p>
+                            Analysis complete! Ask me anything
+                            about these results.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <form id="chat-input-form">
+
+                    <input
+                        type="text"
+                        id="chat-input"
+                        placeholder="e.g., What is this vulnerability?"
+                        autocomplete="off"
+                    >
+
+                    <button type="submit">
+                        Send
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <script src="popup.js"></script>
+
+</body>
+
+</html>

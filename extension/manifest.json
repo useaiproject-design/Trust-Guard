@@ -1,0 +1,17 @@
+{
+  "manifest_version": 3,
+  "name": "ChainSleuth Security Analyzer",
+  "version": "1.0",
+  "description": "Analyzes Ethereum smart contracts for potential security risks.",
+  "permissions": [
+    "activeTab",
+    "scripting"
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "service_worker": "background.js"
+  }
+}
+

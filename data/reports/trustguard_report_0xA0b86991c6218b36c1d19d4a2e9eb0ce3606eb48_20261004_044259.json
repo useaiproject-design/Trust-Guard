@@ -1,0 +1,814 @@
+{
+  "report_metadata": {
+    "generated_at": "2026-10-04T04:42:59.700739+00:00",
+    "report_type": "TrustGuard AI Security Report",
+    "version": "1.0"
+  },
+  "contract": {
+    "address": "0xA0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+    "network": null,
+    "profile": {
+      "success": true,
+      "contract_address": "0xA0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+      "network": "Ethereum Mainnet",
+      "source_code_available": false,
+      "verified_source": false,
+      "contract_type": "Unknown",
+      "upgradeability": {
+        "detected": false,
+        "proxy_pattern": false
+      },
+      "attack_surface_available": false,
+      "onchain_analysis_available": true,
+      "liquidity_analysis_available": true,
+      "analysis_complete": true,
+      "limitations": [
+        "Contract profile fields depend on the source-code and on-chain data available to TrustGuard.",
+        "Pattern detection does not by itself prove exploitability."
+      ]
+    }
+  },
+  "security_summary": {
+    "success": true,
+    "security_score": 0,
+    "risk_level": "Very High Risk",
+    "static_findings_count": 0,
+    "vulnerability_count": 0,
+    "ml_prediction_count": 8,
+    "correlated_finding_count": 8,
+    "multi_signal_finding_count": 0,
+    "attack_surface_available": false,
+    "security_evidence_count": 4,
+    "deployment_readiness": {
+      "status": "READY",
+      "readiness_score": 100.0,
+      "risk_level": "LOW",
+      "vulnerability_counts": {
+        "CRITICAL": 0,
+        "HIGH": 0,
+        "MEDIUM": 0,
+        "LOW": 0,
+        "INFO": 0
+      },
+      "total_findings": 0,
+      "detected_findings": 0,
+      "blocking_issues": [],
+      "recommendations": [
+        "No detected vulnerabilities were supplied to the readiness assessor.",
+        "Contract can proceed toward deployment after completing the normal testing and security review process."
+      ]
+    },
+    "key_flags": [],
+    "summary": "TrustGuard calculated a security score of 0/20 with a risk level of Very High Risk. 0 security flag(s), 8 ML prediction(s), and 0 multi-signal finding(s) were identified.",
+    "limitations": [
+      "The summary reflects the analysis signals available to TrustGuard.",
+      "ML predictions indicate model output and do not by themselves prove exploitability.",
+      "Static patterns and evidence do not by themselves establish that a contract is exploitable."
+    ]
+  },
+  "security_score": {
+    "score": 0,
+    "risk_level": "Very High Risk",
+    "breakdown": {
+      "success": true,
+      "base_score": 20,
+      "total_penalty": 27,
+      "final_score": 0,
+      "risk_level": "Very High Risk",
+      "active_flags": [
+        {
+          "flag": "NO_VERIFIED_SOURCE",
+          "description": "Verified source code could not be retrieved from Etherscan.",
+          "penalty": 15
+        },
+        {
+          "flag": "ONCHAIN_ANALYSIS_FAILED",
+          "description": "HTTPSConnectionPool(host='mainnet.infura.io', port=443): Max retries exceeded with url: /v3/bfc11657bade4b1ab5cba088aa614728 (Caused by NameResolutionError(\"HTTPSConnection(host='mainnet.infura.io', port=443): Failed to resolve 'mainnet.infura.io' ([Errno 11001] getaddrinfo failed)\"))",
+          "penalty": 10
+        },
+        {
+          "flag": "LIQUIDITY_ANALYSIS_FAILED",
+          "description": "HTTPSConnectionPool(host='mainnet.infura.io', port=443): Max retries exceeded with url: /v3/bfc11657bade4b1ab5cba088aa614728 (Caused by NameResolutionError(\"HTTPSConnection(host='mainnet.infura.io', port=443): Failed to resolve 'mainnet.infura.io' ([Errno 11001] getaddrinfo failed)\"))",
+          "penalty": 2
+        }
+      ],
+      "formula": "max(base_score - total_penalty, 0)",
+      "summary": "Security score is 0/20 after applying 27 penalty point(s) from active security flags.",
+      "limitations": [
+        "The score reflects TrustGuard's configured risk-scoring rules.",
+        "The score is not a guarantee that a contract is exploitable or secure.",
+        "Individual findings should be reviewed together with evidence, ML predictions, and static analysis."
+      ]
+    }
+  },
+  "attack_surface": {
+    "success": false,
+    "error": "No Solidity source code was provided.",
+    "attack_surface": {},
+    "capabilities": [],
+    "summary": "",
+    "limitations": [
+      "Attack-surface analysis requires available Solidity source code."
+    ]
+  },
+  "security_evidence": {
+    "success": true,
+    "evidence": [
+      {
+        "type": "onchain",
+        "title": "On-chain total supply available",
+        "description": "TrustGuard retrieved an on-chain total supply value of 0.",
+        "source": "onchain",
+        "confidence": "high"
+      },
+      {
+        "type": "onchain",
+        "title": "Token decimals available",
+        "description": "TrustGuard retrieved an on-chain decimals value of 18.",
+        "source": "onchain",
+        "confidence": "high"
+      },
+      {
+        "type": "liquidity",
+        "title": "Liquidity-pool analysis result available",
+        "description": "Liquidity-pool detection returned: 0.",
+        "source": "onchain",
+        "confidence": "medium"
+      },
+      {
+        "type": "liquidity",
+        "title": "Liquidity burn percentage available",
+        "description": "TrustGuard retrieved a liquidity burn percentage from its on-chain liquidity analysis.",
+        "source": "onchain",
+        "confidence": "medium"
+      }
+    ],
+    "evidence_count": 4,
+    "source_evidence_count": 0,
+    "onchain_evidence_count": 4,
+    "correlated_findings": [],
+    "summary": "4 evidence item(s) were collected: 0 from source-code analysis and 4 from on-chain analysis.",
+    "limitations": [
+      "Evidence is based on available source-code and on-chain data.",
+      "Evidence does not by itself prove exploitability.",
+      "Pattern-based evidence may require manual security review.",
+      "Unavailable or unverified source code can reduce evidence coverage."
+    ]
+  },
+  "ml_assessment": {
+    "success": true,
+    "predictions": [
+      {
+        "vulnerability": "Reentrancy",
+        "probability": 0.1434,
+        "detected": false,
+        "source": "ML_MODEL"
+      },
+      {
+        "vulnerability": "Access Control",
+        "probability": 0.2706,
+        "detected": false,
+        "source": "ML_MODEL"
+      },
+      {
+        "vulnerability": "Arithmetic",
+        "probability": 0.2548,
+        "detected": false,
+        "source": "ML_MODEL"
+      },
+      {
+        "vulnerability": "Unchecked Return Values",
+        "probability": 0.1984,
+        "detected": false,
+        "source": "ML_MODEL"
+      },
+      {
+        "vulnerability": "DoS",
+        "probability": 0.1363,
+        "detected": false,
+        "source": "ML_MODEL"
+      },
+      {
+        "vulnerability": "Bad Randomness",
+        "probability": 0.0599,
+        "detected": false,
+        "source": "ML_MODEL"
+      },
+      {
+        "vulnerability": "Front Running",
+        "probability": 0.07,
+        "detected": false,
+        "source": "ML_MODEL"
+      },
+      {
+        "vulnerability": "Time manipulation",
+        "probability": 0.2439,
+        "detected": false,
+        "source": "ML_MODEL"
+      }
+    ],
+    "prediction_count": 8,
+    "detected_count": 0,
+    "summary": "ML probability estimates generated for 8 vulnerability categories.",
+    "limitations": [
+      "ML probabilities are model predictions, not proof of exploitability.",
+      "Predictions should be interpreted together with static analysis, evidence, and on-chain signals."
+    ]
+  },
+  "explanations": {
+    "success": true,
+    "shap": {
+      "available": true,
+      "vulnerabilities": {
+        "Access Control": [
+          {
+            "feature": "timeStamp",
+            "contribution": 0.036521956324302364,
+            "absolute_contribution": 0.036521956324302364
+          },
+          {
+            "feature": "nLines",
+            "contribution": -0.02699113534299444,
+            "absolute_contribution": 0.02699113534299444
+          },
+          {
+            "feature": "StateVariablesTotal",
+            "contribution": -0.023961848909785814,
+            "absolute_contribution": 0.023961848909785814
+          },
+          {
+            "feature": "nSLOC",
+            "contribution": -0.02297527741989029,
+            "absolute_contribution": 0.02297527741989029
+          },
+          {
+            "feature": "Logic Contracts",
+            "contribution": -0.022556708785258867,
+            "absolute_contribution": 0.022556708785258867
+          },
+          {
+            "feature": "Lines",
+            "contribution": -0.021761358560913192,
+            "absolute_contribution": 0.021761358560913192
+          }
+        ],
+        "Arithmetic": [
+          {
+            "feature": "CALLVALUE_Distribution_pre",
+            "contribution": 0.015004005474924663,
+            "absolute_contribution": 0.015004005474924663
+          },
+          {
+            "feature": "View Functions",
+            "contribution": -0.0128776769989034,
+            "absolute_contribution": 0.0128776769989034
+          },
+          {
+            "feature": "nSLOC",
+            "contribution": -0.010249426292488957,
+            "absolute_contribution": 0.010249426292488957
+          },
+          {
+            "feature": "Complex. Score",
+            "contribution": -0.00867174573041703,
+            "absolute_contribution": 0.00867174573041703
+          },
+          {
+            "feature": "nLines",
+            "contribution": -0.008500659564262538,
+            "absolute_contribution": 0.008500659564262538
+          },
+          {
+            "feature": "Exchange Operation count_post",
+            "contribution": -0.008236541031255984,
+            "absolute_contribution": 0.008236541031255984
+          }
+        ],
+        "Time manipulation": [
+          {
+            "feature": "TIMESTAMP_Distribution_post",
+            "contribution": -0.055041567417888446,
+            "absolute_contribution": 0.055041567417888446
+          },
+          {
+            "feature": "TIMESTAMP_Distribution_pre",
+            "contribution": -0.049726218045796806,
+            "absolute_contribution": 0.049726218045796806
+          },
+          {
+            "feature": "Block Information Operation count_post",
+            "contribution": -0.031535850083176144,
+            "absolute_contribution": 0.031535850083176144
+          },
+          {
+            "feature": "Block Information Operation count_pre",
+            "contribution": -0.02057298585959498,
+            "absolute_contribution": 0.02057298585959498
+          },
+          {
+            "feature": "CALLVALUE_Distribution_pre",
+            "contribution": 0.011717950745555688,
+            "absolute_contribution": 0.011717950745555688
+          },
+          {
+            "feature": "CALL_Distribution_post",
+            "contribution": -0.008007628705038749,
+            "absolute_contribution": 0.008007628705038749
+          }
+        ]
+      },
+      "vulnerability_count": 3,
+      "feature_count": 18
+    },
+    "lime": {
+      "available": true,
+      "vulnerabilities": {
+        "Access Control": [
+          {
+            "feature": "CompilerVersion_v0.4.14+commit.c2215d46 <= 0.00",
+            "contribution": -0.0360944714092539
+          },
+          {
+            "feature": "CompilerVersion_v0.4.19-nightly.2017.10.29+commit.eb140bc6 <= 0.00",
+            "contribution": -0.030916332693866268
+          },
+          {
+            "feature": "CompilerVersion_v0.4.12+commit.194ff033 <= 0.00",
+            "contribution": 0.020899800567829488
+          },
+          {
+            "feature": "methodId_0x65082f79 <= 0.00",
+            "contribution": 0.018737606944649828
+          },
+          {
+            "feature": "methodId_0x60048054 <= 0.00",
+            "contribution": -0.016812666262609462
+          },
+          {
+            "feature": "methodId_0x6155cb61 <= 0.00",
+            "contribution": 0.016596130318386075
+          }
+        ],
+        "Arithmetic": [
+          {
+            "feature": "CompilerVersion_v0.4.25-nightly.2018.6.14+commit.baeabe1c <= 0.00",
+            "contribution": 0.047704620768554515
+          },
+          {
+            "feature": "CompilerVersion_v0.4.14+commit.c2215d46 <= 0.00",
+            "contribution": -0.046126490805076095
+          },
+          {
+            "feature": "EVMVersion_shanghai <= 0.00",
+            "contribution": 0.03072152942047275
+          },
+          {
+            "feature": "EVMVersion_cancun <= 0.00",
+            "contribution": -0.02241829502052628
+          },
+          {
+            "feature": "EVMVersion_london <= 0.00",
+            "contribution": -0.020711755520674415
+          },
+          {
+            "feature": "methodId_0x60006001 <= 0.00",
+            "contribution": -0.01153672551913391
+          }
+        ],
+        "Time manipulation": [
+          {
+            "feature": "TIMESTAMP_Distribution_post <= 0.00",
+            "contribution": -0.11224253927357977
+          },
+          {
+            "feature": "CompilerVersion_v0.4.25-nightly.2018.5.23+commit.18c651b7 <= 0.00",
+            "contribution": 0.0957347523691006
+          },
+          {
+            "feature": "CompilerVersion_v0.4.25-nightly.2018.6.8+commit.81c5a6e4 <= 0.00",
+            "contribution": 0.04468668816360004
+          },
+          {
+            "feature": "methodId_0x683635c9 <= 0.00",
+            "contribution": -0.024766686853453086
+          },
+          {
+            "feature": "CompilerVersion_v0.7.5+commit.eb77ed08 <= 0.00",
+            "contribution": 0.011170373958919498
+          },
+          {
+            "feature": "CompilerVersion_v0.4.8+commit.60cc1668 <= 0.00",
+            "contribution": 0.0015666001447462302
+          }
+        ]
+      },
+      "vulnerability_count": 3,
+      "feature_count": 18
+    },
+    "summary": "SHAP and LIME explanations are available for the vulnerability categories analyzed by the ML explanation pipeline.",
+    "limitations": [
+      "SHAP and LIME explain model behavior; they do not prove exploitability.",
+      "Feature contributions indicate model influence, not causal proof.",
+      "Explanations should be interpreted together with static analysis and security evidence."
+    ]
+  },
+  "findings": {
+    "static_findings": [],
+    "vulnerabilities": [],
+    "severity": []
+  },
+  "vulnerability_correlation": {
+    "success": true,
+    "correlated_findings": [
+      {
+        "vulnerability": "access control",
+        "signals": [
+          "ml_prediction"
+        ],
+        "signal_count": 1,
+        "static_findings": [],
+        "ml_predictions": [
+          {
+            "id": "Access Control",
+            "vulnerability": "Access Control",
+            "probability": 0.2706,
+            "detected": false,
+            "source": "ML_MODEL"
+          }
+        ],
+        "evidence": [],
+        "attack_surface_signal": false,
+        "ml_probability": 0.2706,
+        "severity": "unknown",
+        "correlation": {
+          "score": 10,
+          "level": "weak",
+          "reasons": [
+            "ML prediction probability is present."
+          ]
+        },
+        "correlation_score": 10,
+        "correlation_level": "weak",
+        "confidence": "limited",
+        "exploitability_claim": false,
+        "interpretation": "Multiple security signals are correlated for this vulnerability category. This correlation indicates supporting evidence across analysis layers but does not prove that the contract is exploitable."
+      },
+      {
+        "vulnerability": "arithmetic",
+        "signals": [
+          "ml_prediction"
+        ],
+        "signal_count": 1,
+        "static_findings": [],
+        "ml_predictions": [
+          {
+            "id": "Arithmetic",
+            "vulnerability": "Arithmetic",
+            "probability": 0.2548,
+            "detected": false,
+            "source": "ML_MODEL"
+          }
+        ],
+        "evidence": [],
+        "attack_surface_signal": false,
+        "ml_probability": 0.2548,
+        "severity": "unknown",
+        "correlation": {
+          "score": 10,
+          "level": "weak",
+          "reasons": [
+            "ML prediction probability is present."
+          ]
+        },
+        "correlation_score": 10,
+        "correlation_level": "weak",
+        "confidence": "limited",
+        "exploitability_claim": false,
+        "interpretation": "Multiple security signals are correlated for this vulnerability category. This correlation indicates supporting evidence across analysis layers but does not prove that the contract is exploitable."
+      },
+      {
+        "vulnerability": "bad randomness",
+        "signals": [
+          "ml_prediction"
+        ],
+        "signal_count": 1,
+        "static_findings": [],
+        "ml_predictions": [
+          {
+            "id": "Bad Randomness",
+            "vulnerability": "Bad Randomness",
+            "probability": 0.0599,
+            "detected": false,
+            "source": "ML_MODEL"
+          }
+        ],
+        "evidence": [],
+        "attack_surface_signal": false,
+        "ml_probability": 0.0599,
+        "severity": "unknown",
+        "correlation": {
+          "score": 0,
+          "level": "weak",
+          "reasons": []
+        },
+        "correlation_score": 0,
+        "correlation_level": "weak",
+        "confidence": "limited",
+        "exploitability_claim": false,
+        "interpretation": "Multiple security signals are correlated for this vulnerability category. This correlation indicates supporting evidence across analysis layers but does not prove that the contract is exploitable."
+      },
+      {
+        "vulnerability": "dos",
+        "signals": [
+          "ml_prediction"
+        ],
+        "signal_count": 1,
+        "static_findings": [],
+        "ml_predictions": [
+          {
+            "id": "DoS",
+            "vulnerability": "DoS",
+            "probability": 0.1363,
+            "detected": false,
+            "source": "ML_MODEL"
+          }
+        ],
+        "evidence": [],
+        "attack_surface_signal": false,
+        "ml_probability": 0.1363,
+        "severity": "unknown",
+        "correlation": {
+          "score": 0,
+          "level": "weak",
+          "reasons": []
+        },
+        "correlation_score": 0,
+        "correlation_level": "weak",
+        "confidence": "limited",
+        "exploitability_claim": false,
+        "interpretation": "Multiple security signals are correlated for this vulnerability category. This correlation indicates supporting evidence across analysis layers but does not prove that the contract is exploitable."
+      },
+      {
+        "vulnerability": "front running",
+        "signals": [
+          "ml_prediction"
+        ],
+        "signal_count": 1,
+        "static_findings": [],
+        "ml_predictions": [
+          {
+            "id": "Front Running",
+            "vulnerability": "Front Running",
+            "probability": 0.07,
+            "detected": false,
+            "source": "ML_MODEL"
+          }
+        ],
+        "evidence": [],
+        "attack_surface_signal": false,
+        "ml_probability": 0.07,
+        "severity": "unknown",
+        "correlation": {
+          "score": 0,
+          "level": "weak",
+          "reasons": []
+        },
+        "correlation_score": 0,
+        "correlation_level": "weak",
+        "confidence": "limited",
+        "exploitability_claim": false,
+        "interpretation": "Multiple security signals are correlated for this vulnerability category. This correlation indicates supporting evidence across analysis layers but does not prove that the contract is exploitable."
+      },
+      {
+        "vulnerability": "reentrancy",
+        "signals": [
+          "ml_prediction"
+        ],
+        "signal_count": 1,
+        "static_findings": [],
+        "ml_predictions": [
+          {
+            "id": "Reentrancy",
+            "vulnerability": "Reentrancy",
+            "probability": 0.1434,
+            "detected": false,
+            "source": "ML_MODEL"
+          }
+        ],
+        "evidence": [],
+        "attack_surface_signal": false,
+        "ml_probability": 0.1434,
+        "severity": "unknown",
+        "correlation": {
+          "score": 0,
+          "level": "weak",
+          "reasons": []
+        },
+        "correlation_score": 0,
+        "correlation_level": "weak",
+        "confidence": "limited",
+        "exploitability_claim": false,
+        "interpretation": "Multiple security signals are correlated for this vulnerability category. This correlation indicates supporting evidence across analysis layers but does not prove that the contract is exploitable."
+      },
+      {
+        "vulnerability": "time manipulation",
+        "signals": [
+          "ml_prediction"
+        ],
+        "signal_count": 1,
+        "static_findings": [],
+        "ml_predictions": [
+          {
+            "id": "Time manipulation",
+            "vulnerability": "Time manipulation",
+            "probability": 0.2439,
+            "detected": false,
+            "source": "ML_MODEL"
+          }
+        ],
+        "evidence": [],
+        "attack_surface_signal": false,
+        "ml_probability": 0.2439,
+        "severity": "unknown",
+        "correlation": {
+          "score": 0,
+          "level": "weak",
+          "reasons": []
+        },
+        "correlation_score": 0,
+        "correlation_level": "weak",
+        "confidence": "limited",
+        "exploitability_claim": false,
+        "interpretation": "Multiple security signals are correlated for this vulnerability category. This correlation indicates supporting evidence across analysis layers but does not prove that the contract is exploitable."
+      },
+      {
+        "vulnerability": "unchecked return values",
+        "signals": [
+          "ml_prediction"
+        ],
+        "signal_count": 1,
+        "static_findings": [],
+        "ml_predictions": [
+          {
+            "id": "Unchecked Return Values",
+            "vulnerability": "Unchecked Return Values",
+            "probability": 0.1984,
+            "detected": false,
+            "source": "ML_MODEL"
+          }
+        ],
+        "evidence": [],
+        "attack_surface_signal": false,
+        "ml_probability": 0.1984,
+        "severity": "unknown",
+        "correlation": {
+          "score": 0,
+          "level": "weak",
+          "reasons": []
+        },
+        "correlation_score": 0,
+        "correlation_level": "weak",
+        "confidence": "limited",
+        "exploitability_claim": false,
+        "interpretation": "Multiple security signals are correlated for this vulnerability category. This correlation indicates supporting evidence across analysis layers but does not prove that the contract is exploitable."
+      }
+    ],
+    "correlation_count": 8,
+    "multi_signal_count": 0,
+    "summary": "8 vulnerability category/categories were correlated. 0 category/categories have signals from at least two TrustGuard analysis layers.",
+    "limitations": [
+      "Correlation combines available security signals but does not prove exploitability.",
+      "ML probability is a model output and should not be interpreted as confirmed vulnerability evidence.",
+      "Pattern-based evidence may require manual review.",
+      "Missing source code or incomplete analysis can reduce correlation coverage."
+    ]
+  },
+  "prioritization": [],
+  "remediation": [],
+  "deployment_readiness": {
+    "status": "READY",
+    "readiness_score": 100.0,
+    "risk_level": "LOW",
+    "vulnerability_counts": {
+      "CRITICAL": 0,
+      "HIGH": 0,
+      "MEDIUM": 0,
+      "LOW": 0,
+      "INFO": 0
+    },
+    "total_findings": 0,
+    "detected_findings": 0,
+    "blocking_issues": [],
+    "recommendations": [
+      "No detected vulnerabilities were supplied to the readiness assessor.",
+      "Contract can proceed toward deployment after completing the normal testing and security review process."
+    ]
+  },
+  "confidence": {
+    "success": true,
+    "factor_count": 7,
+    "total_factors": 9,
+    "factors": {
+      "verified_source": false,
+      "onchain_analysis": true,
+      "liquidity_analysis": true,
+      "attack_surface": false,
+      "security_evidence": true,
+      "ml_predictions": true,
+      "shap_explanations": true,
+      "lime_explanations": true,
+      "vulnerability_correlation": true
+    },
+    "confidence_level": "Moderate",
+    "uncertainty_notes": [
+      "Confidence reflects availability and agreement of TrustGuard analysis signals.",
+      "ML predictions are model outputs and do not prove exploitability.",
+      "Static analysis and evidence depend on the source code and on-chain data available.",
+      "Confidence does not represent a probability that the contract is exploitable."
+    ]
+  },
+  "limitations_and_evidence": {
+    "success": true,
+    "evidence_available": true,
+    "evidence_count": 4,
+    "source_evidence_count": 0,
+    "onchain_evidence_count": 4,
+    "evidence_summary": "4 evidence item(s) were collected: 0 from source-code analysis and 4 from on-chain analysis.",
+    "evidence_limitations": [
+      "Evidence is based on available source-code and on-chain data.",
+      "Evidence does not by itself prove exploitability.",
+      "Pattern-based evidence may require manual security review.",
+      "Unavailable or unverified source code can reduce evidence coverage."
+    ],
+    "analysis_limitations": [
+      "Analysis depends on the source code and on-chain data available to TrustGuard.",
+      "ML predictions do not by themselves prove exploitability.",
+      "Pattern-based findings may require manual security review.",
+      "Absence of a detected signal does not guarantee absence of a vulnerability."
+    ]
+  },
+  "analysis_pipeline": {
+    "success": true,
+    "stages": [
+      {
+        "name": "Source Retrieval",
+        "completed": false
+      },
+      {
+        "name": "On-chain Analysis",
+        "completed": true
+      },
+      {
+        "name": "Liquidity Analysis",
+        "completed": true
+      },
+      {
+        "name": "Attack Surface Analysis",
+        "completed": false
+      },
+      {
+        "name": "Static Security Analysis",
+        "completed": true
+      },
+      {
+        "name": "ML Prediction",
+        "completed": true
+      },
+      {
+        "name": "SHAP / LIME Explanation",
+        "completed": true
+      },
+      {
+        "name": "Security Evidence",
+        "completed": true
+      },
+      {
+        "name": "Vulnerability Correlation",
+        "completed": true
+      },
+      {
+        "name": "Prioritization",
+        "completed": false
+      },
+      {
+        "name": "Remediation",
+        "completed": false
+      },
+      {
+        "name": "Deployment Readiness",
+        "completed": true
+      }
+    ],
+    "total_stages": 12,
+    "completed_count": 8
+  },
+  "performance": {
+    "success": true,
+    "total_analysis_duration_seconds": 13.524,
+    "analysis_completed": true,
+    "notes": [
+      "Duration measures the complete TrustGuard analysis pipeline.",
+      "Network latency and external service response times can affect duration."
+    ]
+  }
+}

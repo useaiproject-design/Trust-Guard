@@ -1,0 +1,10 @@
+[
+  "Reentrancy",
+  "Access Control",
+  "Arithmetic",
+  "Unchecked Return Values",
+  "DoS",
+  "Bad Randomness",
+  "Front Running",
+  "Time manipulation"
+]

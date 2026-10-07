@@ -1,0 +1,1428 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>TrustGuard AI - Smart Contract Security</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         NAVBAR
+    ====================================================== -->
+
+    <header class="navbar">
+
+        <div class="brand">
+
+            <div class="brand-icon">
+                🛡️
+            </div>
+
+            <div>
+
+                <h1>
+                    TrustGuard AI
+                </h1>
+
+                <p>
+                    Smart Contract Security Platform
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="status-indicator">
+
+            <span class="status-dot"></span>
+
+            <span>
+                Security Engine Online
+            </span>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =====================================================
+         MAIN APPLICATION
+    ====================================================== -->
+
+    <main class="main-container">
+
+
+        <!-- =================================================
+             HERO SECTION
+        ================================================== -->
+
+        <section class="hero-section">
+
+            <div class="hero-content">
+
+                <span class="eyebrow">
+                    AI-POWERED BLOCKCHAIN SECURITY
+                </span>
+
+
+                <h2>
+
+                    Analyze Smart Contracts
+
+                    <span>
+                        Before You Trust Them.
+                    </span>
+
+                </h2>
+
+
+                <p>
+
+                    Analyze contract source code, on-chain activity,
+                    machine-learning predictions, vulnerabilities,
+                    repair recommendations and deployment readiness
+                    from one security platform.
+
+                </p>
+
+            </div>
+
+
+
+            <!-- =============================================
+                 CONTRACT INPUT
+            ============================================== -->
+
+            <div class="analyzer-box">
+
+                <label for="contractAddress">
+                    Ethereum Contract Address
+                </label>
+
+
+                <div class="address-input-row">
+
+                    <input
+                        type="text"
+                        id="contractAddress"
+                        placeholder="0x..."
+                        autocomplete="off"
+                        spellcheck="false"
+                    >
+
+
+                    <button
+                        id="analyzeBtn"
+                        type="button"
+                    >
+                        Analyze Contract
+                    </button>
+
+                </div>
+
+
+                <p class="input-help">
+
+                    Enter a valid 42-character Ethereum contract address.
+
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             LOADING
+        ================================================== -->
+
+        <section
+            id="loader"
+            class="loader hidden"
+        >
+
+            <div class="loader-spinner"></div>
+
+
+            <div>
+
+                <strong>
+                    TrustGuard AI is analyzing the contract...
+                </strong>
+
+
+                <p>
+
+                    Checking source code, vulnerabilities,
+                    on-chain signals and deployment readiness.
+
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             ERROR MESSAGE
+        ================================================== -->
+
+        <section
+            id="errorBox"
+            class="error-box hidden"
+        >
+
+            <strong>
+                Analysis Error
+            </strong>
+
+
+            <p id="errorMessage"></p>
+
+        </section>
+
+
+
+        <!-- =================================================
+             RESULTS
+        ================================================== -->
+
+        <section
+            id="results"
+            class="hidden"
+        >
+
+
+
+            <!-- =============================================
+                 SUMMARY
+            ============================================== -->
+
+            <div class="section-heading">
+
+                <div>
+
+                    <span class="section-label">
+                        SECURITY ASSESSMENT
+                    </span>
+
+
+                    <h2>
+                        Contract Security Overview
+                    </h2>
+
+                </div>
+
+
+                <span
+                    id="sourceStatus"
+                    class="source-status"
+                >
+                    Source Code
+                </span>
+
+            </div>
+
+
+
+            <div class="summary-grid">
+
+
+                <!-- SCORE -->
+
+                <div class="summary-card score-card">
+
+                    <span class="card-label">
+                        Security Score
+                    </span>
+
+
+                    <div class="score-value">
+
+                        <strong id="scoreValue">
+                            -
+                        </strong>
+
+                        <span>
+                            /20
+                        </span>
+
+                    </div>
+
+
+                    <div class="score-bar">
+
+                        <div
+                            id="scoreBar"
+                            class="score-bar-fill"
+                        ></div>
+
+                    </div>
+
+
+                    <span class="card-description">
+                        Overall TrustGuard security assessment
+                    </span>
+
+                </div>
+
+
+
+                <!-- RISK -->
+
+                <div class="summary-card">
+
+                    <span class="card-label">
+                        Risk Level
+                    </span>
+
+
+                    <strong
+                        id="riskLevel"
+                        class="risk-value"
+                    >
+                        -
+                    </strong>
+
+
+                    <span class="card-description">
+                        Combined security risk assessment
+                    </span>
+
+                </div>
+
+
+
+                <!-- FINDINGS -->
+
+                <div class="summary-card">
+
+                    <span class="card-label">
+                        Findings
+                    </span>
+
+
+                    <strong
+                        id="findingCount"
+                        class="metric-value"
+                    >
+                        0
+                    </strong>
+
+
+                    <span class="card-description">
+                        Prioritized security findings
+                    </span>
+
+                </div>
+
+
+
+                <!-- REPAIRS -->
+
+                <div class="summary-card">
+
+                    <span class="card-label">
+                        Repairs
+                    </span>
+
+
+                    <strong
+                        id="repairCount"
+                        class="metric-value"
+                    >
+                        0
+                    </strong>
+
+
+                    <span class="card-description">
+                        Available remediation suggestions
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =============================================
+                 CONTRACT PROFILE
+            ============================================== -->
+
+            <section class="dashboard-section">
+
+                <div class="section-heading">
+
+                    <div>
+
+                        <span class="section-label">
+                            CONTRACT INTELLIGENCE
+                        </span>
+
+                        <h2>
+                            Contract Profile
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <div class="summary-grid contract-profile-grid">
+
+                    <div class="summary-card">
+
+                        <span class="card-label">
+                            Contract Address
+                        </span>
+
+                        <strong
+                            id="profileContractAddress"
+                            class="metric-value"
+                        >
+                            -
+                        </strong>
+
+                    </div>
+
+
+                    <div class="summary-card">
+
+                        <span class="card-label">
+                            Network
+                        </span>
+
+                        <strong
+                            id="profileNetwork"
+                            class="metric-value"
+                        >
+                            -
+                        </strong>
+
+                    </div>
+
+
+                    <div class="summary-card">
+
+                        <span class="card-label">
+                            Source Status
+                        </span>
+
+                        <strong
+                            id="profileSourceStatus"
+                            class="metric-value"
+                        >
+                            -
+                        </strong>
+
+                    </div>
+
+
+                    <div class="summary-card">
+
+                        <span class="card-label">
+                            Contract Type
+                        </span>
+
+                        <strong
+                            id="profileContractType"
+                            class="metric-value"
+                        >
+                            -
+                        </strong>
+
+                    </div>
+
+
+                    <div class="summary-card">
+
+                        <span class="card-label">
+                            Upgradeability
+                        </span>
+
+                        <strong
+                            id="profileUpgradeability"
+                            class="metric-value"
+                        >
+                            -
+                        </strong>
+
+                    </div>
+
+
+                    <div class="summary-card">
+
+                        <span class="card-label">
+                            Attack Surface
+                        </span>
+
+                        <strong
+                            id="profileAttackSurface"
+                            class="metric-value"
+                        >
+                            -
+                        </strong>
+
+                    </div>
+
+
+                    <div class="summary-card">
+
+                        <span class="card-label">
+                            On-Chain Analysis
+                        </span>
+
+                        <strong
+                            id="profileOnchain"
+                            class="metric-value"
+                        >
+                            -
+                        </strong>
+
+                    </div>
+
+
+                    <div class="summary-card">
+
+                        <span class="card-label">
+                            Analysis Status
+                        </span>
+
+                        <strong
+                            id="profileAnalysisStatus"
+                            class="metric-value"
+                        >
+                            -
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =============================================
+                 SECURITY SUMMARY
+            ============================================== -->
+
+            <section class="dashboard-section">
+
+                <div class="section-heading">
+
+                    <div>
+
+                        <span class="section-label">
+                            SECURITY INTELLIGENCE
+                        </span>
+
+                        <h2>
+                            Security Summary
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <div class="summary-grid security-summary-grid">
+
+                    <div class="summary-card">
+                        <span class="card-label">Security Score</span>
+                        <strong id="summarySecurityScore" class="metric-value">-</strong>
+                    </div>
+
+                    <div class="summary-card">
+                        <span class="card-label">Risk Level</span>
+                        <strong id="summaryRiskLevel" class="metric-value">-</strong>
+                    </div>
+
+                    <div class="summary-card">
+                        <span class="card-label">Static Findings</span>
+                        <strong id="summaryStaticFindings" class="metric-value">-</strong>
+                    </div>
+
+                    <div class="summary-card">
+                        <span class="card-label">Vulnerabilities</span>
+                        <strong id="summaryVulnerabilities" class="metric-value">-</strong>
+                    </div>
+
+                    <div class="summary-card">
+                        <span class="card-label">ML Evaluations</span>
+                        <strong id="summaryMLPredictions" class="metric-value">-</strong>
+                    </div>
+
+                    <div class="summary-card">
+                        <span class="card-label">Correlated Findings</span>
+                        <strong id="summaryCorrelatedFindings" class="metric-value">-</strong>
+                    </div>
+
+                    <div class="summary-card">
+                        <span class="card-label">Multi-Signal Findings</span>
+                        <strong id="summaryMultiSignal" class="metric-value">-</strong>
+                    </div>
+
+                    <div class="summary-card">
+                        <span class="card-label">Security Evidence</span>
+                        <strong id="summaryEvidence" class="metric-value">-</strong>
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =============================================
+                 DEPLOYMENT READINESS
+            ============================================== -->
+
+            <section class="dashboard-section">
+
+                <div class="section-heading">
+
+                    <div>
+
+                        <span class="section-label">
+                            DEPLOYMENT ASSESSMENT
+                        </span>
+
+
+                        <h2>
+                            Deployment Readiness
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="readiness-grid">
+
+
+                    <div class="readiness-main">
+
+                        <div
+                            id="readinessStatus"
+                            class="readiness-status"
+                        >
+                            -
+                        </div>
+
+
+                        <strong
+                            id="readinessScore"
+                            class="readiness-score"
+                        >
+                            -
+                        </strong>
+
+
+                        <span>
+                            Readiness Score
+                        </span>
+
+                    </div>
+
+
+
+                    <div class="readiness-risk">
+
+                        <span class="card-label">
+                            Risk Level
+                        </span>
+
+
+                        <strong id="readinessRisk">
+                            -
+                        </strong>
+
+                    </div>
+
+
+
+                    <div class="readiness-risk">
+
+                        <span class="card-label">
+                            Total Findings
+                        </span>
+
+
+                        <strong id="readinessFindings">
+                            0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- VULNERABILITY COUNTS -->
+
+                <div class="severity-counts">
+
+
+                    <div>
+
+                        <span>
+                            CRITICAL
+                        </span>
+
+                        <strong id="criticalCount">
+                            0
+                        </strong>
+
+                    </div>
+
+
+
+                    <div>
+
+                        <span>
+                            HIGH
+                        </span>
+
+                        <strong id="highCount">
+                            0
+                        </strong>
+
+                    </div>
+
+
+
+                    <div>
+
+                        <span>
+                            MEDIUM
+                        </span>
+
+                        <strong id="mediumCount">
+                            0
+                        </strong>
+
+                    </div>
+
+
+
+                    <div>
+
+                        <span>
+                            LOW
+                        </span>
+
+                        <strong id="lowCount">
+                            0
+                        </strong>
+
+                    </div>
+
+
+
+                    <div>
+
+                        <span>
+                            INFO
+                        </span>
+
+                        <strong id="infoCount">
+                            0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- BLOCKING ISSUES -->
+
+                <div class="two-column">
+
+
+                    <div>
+
+                        <h3>
+                            Blocking Issues
+                        </h3>
+
+
+                        <ul id="blockingIssues">
+                        </ul>
+
+                    </div>
+
+
+
+                    <div>
+
+                        <h3>
+                            Recommendations
+                        </h3>
+
+
+                        <ul id="readinessRecommendations">
+                        </ul>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =============================================
+                 RED FLAGS
+            ============================================== -->
+
+            <section class="dashboard-section">
+
+                <div class="section-heading">
+
+                    <div>
+
+                        <span class="section-label">
+                            STATIC / ON-CHAIN SIGNALS
+                        </span>
+
+
+                        <h2>
+                            Potential Red Flags
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <div id="flagsList">
+                </div>
+
+            </section>
+
+
+
+            <!-- =============================================
+                 PRIORITIZED VULNERABILITIES
+            ============================================== -->
+
+            <section class="dashboard-section">
+
+                <div class="section-heading">
+
+                    <div>
+
+                        <span class="section-label">
+                            UNIFIED SECURITY FINDINGS
+                        </span>
+
+
+                        <h2>
+                            Prioritized Vulnerabilities
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    id="vulnerabilitiesList"
+                    class="finding-list"
+                >
+                </div>
+
+            </section>
+
+
+
+            <!-- =============================================
+                 REPAIR SUGGESTIONS
+            ============================================== -->
+
+            <section class="dashboard-section">
+
+                <div class="section-heading">
+
+                    <div>
+
+                        <span class="section-label">
+                            REMEDIATION
+                        </span>
+
+
+                        <h2>
+                            Repair Suggestions
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    id="repairsList"
+                    class="finding-list"
+                >
+                </div>
+
+            </section>
+
+
+
+            <!-- =============================================
+                 ON-CHAIN ANALYSIS
+            ============================================== -->
+
+            <section class="dashboard-section">
+
+                <div class="section-heading">
+
+                    <div>
+
+                        <span class="section-label">
+                            BLOCKCHAIN INTELLIGENCE
+                        </span>
+
+
+                        <h2>
+                            On-Chain Analysis
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    id="onchainDetails"
+                    class="onchain-grid"
+                >
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 AI INTELLIGENCE
+            ================================================== -->
+
+            <section
+                class="dashboard-section"
+                id="aiIntelligenceSection"
+            >
+
+
+                <div class="section-heading">
+
+                    <div>
+
+                        <span class="section-label">
+                            AI SECURITY INTELLIGENCE
+                        </span>
+
+
+                        <h2>
+                            Machine Learning & Explainable AI
+                        </h2>
+
+
+                        <p>
+
+                            TrustGuard combines machine-learning
+                            vulnerability prediction with SHAP and
+                            LIME explanations to show why security
+                            risks were identified.
+
+                        </p>
+
+                    </div>
+
+
+                    <span class="ai-badge">
+                        ML + XAI
+                    </span>
+
+                </div>
+
+
+
+                <!-- =========================================
+                     AI SUMMARY
+                ========================================== -->
+
+                <div class="summary-grid">
+
+
+                    <div class="summary-card">
+
+                        <span class="card-label">
+                            Vulnerabilities Detected
+                        </span>
+
+
+                        <strong
+                            id="mlPredictionCount"
+                            class="metric-value"
+                        >
+                            0
+                        </strong>
+
+
+                        <span class="card-description">
+
+                            Vulnerability classes detected
+                            by the machine-learning model.
+
+                        </span>
+
+                    </div>
+
+
+
+                    <div class="summary-card">
+
+                        <span class="card-label">
+                            ML Classes Evaluated
+                        </span>
+
+
+                        <strong
+                            id="mlClassesEvaluated"
+                            class="metric-value"
+                        >
+                            0
+                        </strong>
+
+                    </div>
+
+
+                    <div class="summary-card">
+
+                        <span class="card-label">
+                            ML Features
+                        </span>
+
+
+                        <strong
+                            id="mlFeatureCount"
+                            class="metric-value"
+                        >
+                            0
+                        </strong>
+
+
+                        <span class="card-description">
+
+                            Engineered security features used
+                            by the intelligence pipeline.
+
+                        </span>
+
+                    </div>
+
+
+
+                    <div class="summary-card">
+
+                        <span class="card-label">
+                            SHAP Explanations
+                        </span>
+
+
+                        <strong
+                            id="shapCount"
+                            class="metric-value"
+                        >
+                            0
+                        </strong>
+
+
+                        <span class="card-description">
+
+                            Feature-impact explanations
+                            generated by SHAP.
+
+                        </span>
+
+                    </div>
+
+
+
+                    <div class="summary-card">
+
+                        <span class="card-label">
+                            LIME Explanations
+                        </span>
+
+
+                        <strong
+                            id="limeCount"
+                            class="metric-value"
+                        >
+                            0
+                        </strong>
+
+
+                        <span class="card-description">
+
+                            Local explanations generated
+                            by LIME.
+
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- =========================================
+                     ML PREDICTIONS
+                ========================================== -->
+
+                <div class="dashboard-section">
+
+
+                    <div class="section-heading">
+
+                        <div>
+
+                            <span class="section-label">
+                                MACHINE LEARNING
+                            </span>
+
+
+                            <h2>
+                                Vulnerability Predictions
+                            </h2>
+
+                        </div>
+
+                    </div>
+
+
+                    <div
+                        id="mlPredictionsList"
+                        class="finding-list"
+                    >
+
+                        <div class="summary-card">
+
+                            <p>
+                                No machine-learning predictions
+                                available yet.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- =========================================
+                     EXPLAINABILITY
+                ========================================== -->
+
+                <div class="dashboard-section">
+
+
+                    <div class="section-heading">
+
+                        <div>
+
+                            <span class="section-label">
+                                EXPLAINABLE AI
+                            </span>
+
+
+                            <h2>
+                                Why the Model Evaluated It
+                            </h2>
+
+
+                            <p>
+
+                                SHAP and LIME explanations identify
+                                the engineered security features that
+                                influenced the model's predictions.
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div
+                        id="explanationsList"
+                        class="finding-list"
+                    >
+
+                        <div class="summary-card">
+
+                            <p>
+                                Explainability results will appear
+                                after contract analysis.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- =========================================
+                     AI FEATURES
+                ========================================== -->
+
+                <div class="dashboard-section">
+
+
+                    <div class="section-heading">
+
+                        <div>
+
+                            <span class="section-label">
+                                FEATURE ENGINEERING
+                            </span>
+
+
+                            <h2>
+                                Security Features
+                            </h2>
+
+                        </div>
+
+                    </div>
+
+
+                    <div
+                        id="mlFeaturesList"
+                        class="onchain-grid"
+                    >
+
+                        <div class="summary-card">
+
+                            <p>
+                                Engineered security features will
+                                appear here.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </section>
+
+
+
+            <!-- =============================================
+                 SECURITY INTELLIGENCE DETAILS
+            ============================================== -->
+
+            <section class="dashboard-section">
+
+                <div class="section-heading">
+
+                    <div>
+
+                        <span class="section-label">
+                            ANALYSIS INTELLIGENCE
+                        </span>
+
+                        <h2>
+                            Security Intelligence Details
+                        </h2>
+
+                    </div>
+
+                </div>
+
+                <div class="tg-intelligence-details-grid"><div class="summary-card tg-intelligence-card"><span class="card-label">Security Score Breakdown</span>
+                        <div id="scoreBreakdownDetails" class="finding-list"></div>
+                    </div>
+
+                    <div class="summary-card">
+                        <span class="card-label">Confidence Assessment</span>
+                        <div id="confidenceAssessmentDetails" class="finding-list"></div>
+                    </div>
+
+                    <div class="summary-card">
+                        <span class="card-label">Analysis Pipeline</span>
+                        <div id="analysisPipelineDetails" class="finding-list"></div>
+                    </div>
+
+                    <div class="summary-card">
+                        <span class="card-label">Vulnerability Correlation</span>
+                        <div id="correlationDetails" class="finding-list"></div>
+                    </div>
+
+                    <div class="summary-card">
+                        <span class="card-label">Performance Metrics</span>
+                        <div id="performanceMetricsDetails" class="finding-list"></div>
+                    </div>
+
+                    <div class="summary-card">
+                        <span class="card-label">Limitations & Evidence Notes</span>
+                        <div id="limitationsEvidenceDetails" class="finding-list"></div>
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- =============================================
+                 AI CHAT
+            ============================================== -->
+
+            <section class="dashboard-section chatbot-section">
+
+                <div class="section-heading">
+
+                    <div>
+
+                        <span class="section-label">
+                            AI SECURITY ASSISTANT
+                        </span>
+
+
+                        <h2>
+                            Ask TrustGuard AI
+                        </h2>
+
+                    </div>
+
+
+                    <span class="ai-badge">
+                        AI
+                    </span>
+
+                </div>
+
+
+
+                <div
+                    id="chatBox"
+                    class="chat-box"
+                >
+
+
+                    <div class="chat-message bot">
+
+                        <div class="chat-avatar">
+                            AI
+                        </div>
+
+
+                        <div class="chat-content">
+
+                            <strong>
+                                TrustGuard AI
+                            </strong>
+
+
+                            <p>
+
+                                Analyze a contract first, then ask me
+                                questions about its security findings.
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <form
+                    id="chatForm"
+                    class="chat-form"
+                >
+
+                    <input
+                        type="text"
+                        id="chatInput"
+                        placeholder="Ask about the contract analysis..."
+                        autocomplete="off"
+                    >
+
+
+                    <button
+                        type="submit"
+                    >
+                        Send
+                    </button>
+
+                </form>
+
+            </section>
+
+
+        </section>
+
+
+
+        <!-- =================================================
+             FOOTER
+        ================================================== -->
+
+        <footer>
+
+            <p>
+                TrustGuard AI • AI-Powered Smart Contract Security
+            </p>
+
+
+            <p>
+                Static Analysis • Machine Learning • On-Chain Intelligence
+            </p>
+
+        </footer>
+
+
+    </main>
+
+
+
+    <script src="app.js"></script>
+
+
+</body>
+
+</html>
+
